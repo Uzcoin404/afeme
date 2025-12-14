@@ -1,23 +1,31 @@
 import { useState, useCallback, useEffect } from "react";
+import { throttle } from "./memoization";
 
 export default function useResize(myRef) {
     const [elWidth, setElWidth] = useState(0);
     const [elHeight, setElHeight] = useState(0);
 
     const handleResize = useCallback(() => {
-        setElWidth(myRef.current.offsetWidth);
-        setElHeight(myRef.current.offsetHeight);
+        if (myRef.current) {
+            setElWidth(myRef.current.offsetWidth);
+            setElHeight(myRef.current.offsetHeight);
+        }
     }, [myRef]);
 
+    const throttledResize = useCallback(throttle(handleResize, 250), [handleResize]);
+
     useEffect(() => {
-        window.addEventListener("load", handleResize);
-        window.addEventListener("resize", handleResize);
+        // Get initial dimensions
+        handleResize();
+        
+        window.addEventListener("load", throttledResize);
+        window.addEventListener("resize", throttledResize);
 
         return () => {
-            window.removeEventListener("load", handleResize);
-            window.removeEventListener("resize", handleResize);
+            window.removeEventListener("load", throttledResize);
+            window.removeEventListener("resize", throttledResize);
         };
-    }, [myRef, handleResize]);
+    }, [handleResize, throttledResize]);
 
     return { elWidth, elHeight };
 }

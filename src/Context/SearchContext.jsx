@@ -1,13 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useMemo } from "react";
 
 const SearchContext = createContext();
 
 function Provider({children}) {
 
     const [searchTerms, setSearchTerms] = useState();
+    const value = useMemo(() => ({searchTerms, setSearchTerms}), [searchTerms]);
 
     return (
-        <SearchContext.Provider value={{searchTerms, setSearchTerms}}>{children}</SearchContext.Provider>
+        <SearchContext.Provider value={value}>{children}</SearchContext.Provider>
     )
 }
 export { SearchContext, Provider}

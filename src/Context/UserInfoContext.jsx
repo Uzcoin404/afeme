@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useMemo } from "react";
 import UserContext from "./UserContext";
 
 const UserInfo = createContext();
@@ -6,17 +6,16 @@ const UserInfo = createContext();
 function Provider({ children }) {
 
     const [user, setUser] = useState([]);
-    var myHeaders = new Headers();
-    let data = {};
+    const value = useMemo(() => ({ user, setUser }), [user]);
 
     useEffect(() => {
         if (user.hasOwnProperty('data')) {
-            data['favorites'] = user.favorites;
+            // Mark that user data is available
         }
-    }, [])
+    }, [user])
 
     return (
-        <UserInfo.Provider value={{ user, setUser }}>{children}</UserInfo.Provider>
+        <UserInfo.Provider value={value}>{children}</UserInfo.Provider>
     )
 }
 export { UserContext, Provider }

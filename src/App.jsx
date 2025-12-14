@@ -1,62 +1,75 @@
 // Import React and React Hooks
-import React, { useEffect, Suspense } from 'react';
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect, Suspense, lazy } from 'react';
+import { Routes, Route, useLocation } from "react-router-dom";
 
 // Import Components
 import './App.scss';
-import Home from "./Pages/Home/Home";
-import SignUp from './Pages/SignUp/SignUp';
-import AdvertPage from './Pages/AdventPage/advertPage';
-import Adverts from './Pages/Adverts/Adverts'
-import Advert from './Pages/Advert/Advert';
-import CatalogRealtor from './Pages/CatalogOfRealtors/CatalogRealtors';
-import Chat from './Pages/ChatPage/ChatPage'
-import Page404 from './Pages/404/404';
-import ReltorCob from './Pages/ReltorCobinet/Reltor';
+import Loader from './Components/Loader/Loader';
 import ScrollTop from './Utils/ScrollTop';
-import UsProfil from './Pages/UserProfil/UsProfil';
-import UserAdsPage from "./Pages/UserAdsPage/UserAdsPage";
-import UserFavoritesPage from './Pages/UserFavoritesPage/UserFavoritesPage';
-import Help from './Pages/Help/Help';
-import SearchMap from './Pages/SearchMap/SearchMap';
-import UserPostEditPage from './Pages/UserPostEditPage/UserPostEditPage';
-import Email from './Components/Forgot/Email/Email';
-import NewPassword from './Components/Forgot/newPassword/NewPassword';
+
+// Lazy load pages for code splitting
+const Home = lazy(() => import("./Pages/Home/Home"));
+const SignUp = lazy(() => import('./Pages/SignUp/SignUp'));
+const AdvertPage = lazy(() => import('./Pages/AdventPage/advertPage'));
+const Adverts = lazy(() => import('./Pages/Adverts/Adverts'));
+const Advert = lazy(() => import('./Pages/Advert/Advert'));
+const CatalogRealtor = lazy(() => import('./Pages/CatalogOfRealtors/CatalogRealtors'));
+const Chat = lazy(() => import('./Pages/ChatPage/ChatPage'));
+const Page404 = lazy(() => import('./Pages/404/404'));
+const ReltorCob = lazy(() => import('./Pages/ReltorCobinet/Reltor'));
+const UsProfil = lazy(() => import('./Pages/UserProfil/UsProfil'));
+const UserAdsPage = lazy(() => import("./Pages/UserAdsPage/UserAdsPage"));
+const UserFavoritesPage = lazy(() => import('./Pages/UserFavoritesPage/UserFavoritesPage'));
+const Help = lazy(() => import('./Pages/Help/Help'));
+const SearchMap = lazy(() => import('./Pages/SearchMap/SearchMap'));
+const UserPostEditPage = lazy(() => import('./Pages/UserPostEditPage/UserPostEditPage'));
+const Email = lazy(() => import('./Components/Forgot/Email/Email'));
+const NewPassword = lazy(() => import('./Components/Forgot/newPassword/NewPassword'));
+
+// Track if readystatechange listener has been added
+let readystateListenerAdded = false;
 
 function App() {
+    const location = useLocation();
 
     useEffect(() => {
-        if (window.location.pathname.substring(0, 5) != '/chat') {
-            if (!document.querySelector('.page404')) {
+        const isChatPage = location.pathname.substring(0, 5) === '/chat';
+        const isErrorPage = document.querySelector('.page404');
+        
+        if (!isChatPage && !isErrorPage) {
+            // Load Replain widget only once
+            if (!window.replainSettings) {
                 window.replainSettings = { id: "c2f4a578-9a1f-49ac-9214-44448b236714" };
-                (function (u) {
-                    var s = document.createElement("script");
-                    s.async = true;
-                    s.src = u;
-                    var x = document.getElementsByTagName("script")[0];
-                    x.parentNode.insertBefore(s, x);
-                    x.style.zIndex = "1";
-                })("https://widget.replain.cc/dist/client.js");
+                const script = document.createElement("script");
+                script.async = true;
+                script.src = "https://widget.replain.cc/dist/client.js";
+                script.style.zIndex = "1";
+                document.head.appendChild(script);
             }
         }
-    }, [])
+    }, [location.pathname])
 
-    document.addEventListener('readystatechange', function (event) {
-        if (document.readyState === "complete") {
-            
-            const loader = document.querySelectorAll('.loading');
-            setTimeout(() => {
-                for (let i = 0; i < loader.length; i++) {
-                    loader[i]?.remove();
+    // Clean up loaders on document ready
+    useEffect(() => {
+        if (!readystateListenerAdded) {
+            const handleReadyStateChange = () => {
+                if (document.readyState === "complete") {
+                    const loaders = document.querySelectorAll('.loading');
+                    loaders.forEach(loader => {
+                        setTimeout(() => loader.remove(), 500);
+                    });
+                    document.removeEventListener('readystatechange', handleReadyStateChange);
+                    readystateListenerAdded = true;
                 }
-            }, 500);
+            };
+            document.addEventListener('readystatechange', handleReadyStateChange);
         }
-    });
+    }, [])
 
     return (
         <>
             <ScrollTop />
-            <Suspense>
+            <Suspense fallback={<Loader />}>
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/Afeme' element={<Home />} />

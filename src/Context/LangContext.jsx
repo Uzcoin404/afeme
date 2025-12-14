@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useMemo } from "react";
 
 const Context = createContext()
 
@@ -10,8 +10,10 @@ function Provider({children}) {
         window.localStorage.setItem("lang", lang)
     }, [lang])
 
+    const value = useMemo(() => ({lang, setLang}), [lang]);
+
     return (
-        <Context.Provider value={{lang, setLang}}>{children}</Context.Provider>
+        <Context.Provider value={value}>{children}</Context.Provider>
     )
 }
 export { Context, Provider}

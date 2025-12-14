@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import Loader from "./Components/Loader/Loader";
+import ErrorBoundary from "./Components/ErrorBoundary/ErrorBoundary";
 import App from "./App";
 import { GlobalDebug } from "./Utils/removeConsole";
 import { Provider as LangProvider } from "./Context/LangContext";
@@ -22,21 +23,23 @@ window.addEventListener('load', function(){
     document.body.classList.add('loaded');
 })
 root.render(
-    <BrowserRouter>
-        <LangProvider>
-            <UpdateUserProvider>
-                <UserProvider>
-                    <CurrencyProvider>
-                        <IPProvider>
-                            <SearchContext>
-                                <Loader />
-                                <App />
-                                <Modal/>
-                            </SearchContext>
-                        </IPProvider>
-                    </CurrencyProvider>
-                </UserProvider>
-            </UpdateUserProvider>
-        </LangProvider>
-    </BrowserRouter>
+    <ErrorBoundary>
+        <BrowserRouter>
+            <LangProvider>
+                <UpdateUserProvider>
+                    <UserProvider>
+                        <CurrencyProvider>
+                            <IPProvider>
+                                <SearchContext>
+                                    <Loader />
+                                    <App />
+                                    <Modal/>
+                                </SearchContext>
+                            </IPProvider>
+                        </CurrencyProvider>
+                    </UserProvider>
+                </UpdateUserProvider>
+            </LangProvider>
+        </BrowserRouter>
+    </ErrorBoundary>
 );

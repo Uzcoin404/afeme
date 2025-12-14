@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useMemo, useCallback } from "react";
 
 import { UpdateUserContext } from "./UpdateUserContext";
 const UserContext = createContext();
@@ -9,42 +9,46 @@ function Provider({ children }) {
 
     const [user, setUser] = useState([]);
     const { updateUser, setUpdateUser } = useContext(UpdateUserContext);
-    var myHeaders = new Headers();
     const token = localStorage.getItem("Token");
     const userID = localStorage.getItem("user_id");
-    let data = {};
 
-    myHeaders.append("Authorization", `Bearer ${token}`);
-
-    var requestOptions = {
+    const requestOptions = useMemo(() => ({
         method: 'GET',
-        headers: myHeaders,
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
         redirect: 'follow'
-    };
+    }), [token]);
 
-    function successData(newData) {
-        data['data'] = newData;
-        data['status'] = true;
-        data['favorites'] = newData.favorites.length;
+    const successData = useCallback((newData) => {
+        const data = {
+            data: newData,
+            status: true,
+            favorites: newData.favorites.length
+        };
         localStorage.setItem('user_id', newData.id);
         setUser(data);
-    }
+    }, []);
 
-    function setErrorData() {
-        data['status'] = false;
-        setUser(data);
-    }
+    const setErrorData = useCallback(() => {
+        setUser({ status: false });
+    }, []);
 
     useEffect(() => {
         if (token) {
             fetch(`${url}getuser`, requestOptions)
                 .then(response => response.text())
                 .then((response) => {
-                    let status = JSON.parse(response).status;
-                    let newData = JSON.parse(response).data
-                    if (status == true && newData.hasOwnProperty("id")) {
-                        successData(newData);
-                    } else {
+                    try {
+                        const parsed = JSON.parse(response);
+                        const status = parsed.status;
+                        const newData = parsed.data;
+                        if (status === true && newData.hasOwnProperty("id")) {
+                            successData(newData);
+                        } else {
+                            setErrorData();
+                        }
+                    } catch (e) {
                         setErrorData();
                     }
                 })
@@ -54,10 +58,12 @@ function Provider({ children }) {
         } else {
             setErrorData();
         }
-    }, [updateUser])
+    }, [updateUser, token, requestOptions, successData, setErrorData])
+
+    const value = useMemo(() => ({ user, setUser }), [user]);
 
     return (
-        <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>
+        <UserContext.Provider value={value}>{children}</UserContext.Provider>
     )
 }
 export { UserContext, Provider }

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useMemo } from "react";
 import { getCookie, setCookie } from "../Utils/cookies";
 
 const DefaultCurrency = "usd";
@@ -12,8 +12,10 @@ function Provider({children}) {
         setCookie('currency', currency, 5);
     }, [currency])
 
+    const value = useMemo(() => ({currency, setCurrency}), [currency]);
+
     return (
-        <CurrencyContext.Provider value={{currency, setCurrency}}>{children}</CurrencyContext.Provider>
+        <CurrencyContext.Provider value={value}>{children}</CurrencyContext.Provider>
     )
 }
 export { CurrencyContext, Provider}
