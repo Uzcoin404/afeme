@@ -21,7 +21,7 @@ import "./AdvertMap.scss";
 function AdvertMap({ advert = null, zoom = 11, coordinate = null }) {
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    let url = process.env.REACT_APP_URL;
+    let url = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
         setIsLoading(true);

@@ -21,7 +21,7 @@ import NoResults from "../../Components/NoResults/NoResults";
 // Import => Style
 import "./Adverts.scss";
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function Adverts() {
 

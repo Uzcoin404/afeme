@@ -19,7 +19,7 @@
 // import ReactStars from "react-rating-stars-component";
 // import StarIcon from "../../Lib/Svg/star";
 
-// let url = process.env.REACT_APP_URL;
+// let url = process.env.REACT_APP_API_URL;
 
 // function RealtorsCard() {
 //     // Pagination useState

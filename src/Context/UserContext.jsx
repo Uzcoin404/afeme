@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState, useMemo, useCallback } 
 import { UpdateUserContext } from "./UpdateUserContext";
 const UserContext = createContext();
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function Provider({ children }) {
 

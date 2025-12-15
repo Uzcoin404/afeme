@@ -49,7 +49,7 @@ function Cards({ data, fullCard = false, isUserPost = false }) {
         headers: myHeaders,
         redirect: "follow",
     };
-    let url = process.env.REACT_APP_URL;
+    let url = process.env.REACT_APP_API_URL;
 
     const {
         price,

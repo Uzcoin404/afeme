@@ -6,7 +6,7 @@ import Cards from "../../Components/Card/Card";
 import { SearchContext } from "../../Context/SearchContext";
 import NoResults from "../NoResults/NoResults";
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function MapSearch() {
     const [data, setData] = useState([]);

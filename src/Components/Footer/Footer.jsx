@@ -19,7 +19,7 @@ import content from '../../Localization/Content';
 import axios from "axios";
 import { v4 } from "uuid";
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function Footer() {
 

@@ -11,7 +11,7 @@ import axios from "axios";
 // Import => Skeleton
 import ContentLoader from "react-content-loader";
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function NewBuildingsCard() {
 
@@ -35,7 +35,7 @@ function NewBuildingsCard() {
                         regionData.map((reg) => {
                             return (
                                 <Link to={`/adverts?region=${reg.id}`} className="new-buildin-card" key={reg.id}>
-                                    <img className="new-buildin-card__img" src={reg.image} alt="" />
+                                    <img className="new-buildin-card__img" src={process.env.REACT_APP_STORAGE_URL + reg.image} alt="" />
 
                                     <div className="new-buildin-card__body">
                                         <h4 className="new-buildin-card__title">{reg.name_uz}</h4>

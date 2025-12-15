@@ -35,7 +35,7 @@ function ReltorCobinet() {
     // Skeleton useState
     const [isLoading, setLoading] = useState(false);
 
-    let url = process.env.REACT_APP_URL;
+    let url = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
         axios

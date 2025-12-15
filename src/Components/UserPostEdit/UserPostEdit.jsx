@@ -20,7 +20,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { TextField } from '@mui/material'
-import MapPicker from "react-google-map-picker";
+// import MapPicker from "react-google-map-picker";
 import { v4 } from "uuid";
 import axios from "axios"
 import Compressor from 'compressorjs';
@@ -31,7 +31,7 @@ import Compressor from 'compressorjs';
 //Url Variable
 
 function UserPostEdit() {
-    let url = process.env.REACT_APP_URL;
+    let url = process.env.REACT_APP_API_URL;
     const DefaultZomm = 4;
     const [longitude, setLongitude] = useState(0)
     const [latitude, setLatitude] = useState(0)
@@ -479,14 +479,7 @@ function UserPostEdit() {
                             />
                         </div>
                         <div className="saleHouse">
-                            <MapPicker
-                                defaultLocation={defaultLocation}
-                                zoom={zoom}
-                                mapTypeId='roadmap'
-                                style={{ height: '300px' }}
-                                onChangeLocation={(lat, lng) => Location(lat, lng)}
-                                onChangeZoom={(newZoom) => setZoom(newZoom)}
-                                apiKey='AIzaSyB8NHCF-5fMix0w2363RhC3V4vcyw8SHSM' />
+                           
                         </div>
                         <div className="saleHouse">
                             <TextField

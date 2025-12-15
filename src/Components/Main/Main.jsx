@@ -35,7 +35,7 @@ function Main() {
     const [isLoading, setIsLoading] = useState(true);
     const [rekData, setRekData] = useState([]);
 
-    let url = process.env.REACT_APP_URL;
+    let url = process.env.REACT_APP_API_URL;
 
     const [reltData, setReltData] = useState([]);
 

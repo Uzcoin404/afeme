@@ -9,7 +9,7 @@ import content from '../../Localization/Content';
 import style from './SaleType.module.scss'
 import axios from 'axios';
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function SaleType({ sale_id, setsType }) {
   const [saleType, setSaleType] = useState([]);

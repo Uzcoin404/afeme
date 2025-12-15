@@ -68,9 +68,6 @@ importers:
       react-dom:
         specifier: ^18.1.0
         version: 18.3.1(react@18.3.1)
-      react-google-map-picker:
-        specifier: ^1.2.3
-        version: 1.2.3(react@18.3.1)
       react-hook-form:
         specifier: ^7.32.0
         version: 7.68.0(react@18.3.1)
@@ -5395,12 +5392,6 @@ packages:
 
   react-error-overlay@6.1.0:
     resolution: {integrity: sha512-SN/U6Ytxf1QGkw/9ve5Y+NxBbZM6Ht95tuXNMKs8EJyFa/Vy/+Co3stop3KBHARfn/giv+Lj1uUnTfOJ3moFEQ==}
-
-  react-google-map-picker@1.2.3:
-    resolution: {integrity: sha512-XeIj0Eh0vhNToMTebQQrt5O9fdPRDf4KtG8J22xupH7Pu49J1dP5UuhfCM6VmK2nIv5ECyQUpOT6+gZgGaQhJA==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: ^17.0.0
 
   react-hook-form@7.68.0:
     resolution: {integrity: sha512-oNN3fjrZ/Xo40SWlHf1yCjlMK417JxoSJVUXQjGdvdRCU07NTFei1i1f8ApUAts+IVh14e4EdakeLEA+BEAs/Q==}
@@ -13080,10 +13071,6 @@ snapshots:
       scheduler: 0.23.2
 
   react-error-overlay@6.1.0: {}
-
-  react-google-map-picker@1.2.3(react@18.3.1):
-    dependencies:
-      react: 18.3.1
 
   react-hook-form@7.68.0(react@18.3.1):
     dependencies:

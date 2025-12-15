@@ -29,7 +29,7 @@ import content from '../../Localization/Content';
 import LoginImg from "../LoginImg/LoginImg";
 
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function Form() {
     // Localization == useContext

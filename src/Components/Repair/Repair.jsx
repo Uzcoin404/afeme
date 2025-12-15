@@ -9,7 +9,7 @@ import { Context } from '../../Context/LangContext';
 import content from '../../Localization/Content';
 import style from '../../Pages/AdventPage/advertPage.module.scss'
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function Repair({ repair_id, setRepair }) {
 

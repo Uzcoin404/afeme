@@ -5,7 +5,7 @@ import { Context } from '../../../Context/LangContext';
 import content from '../../../Localization/Content';
 import "../../Form/Form.scss";
 import Header from '../../../Components/Header/Header';
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function NewPassword() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();

@@ -89,7 +89,7 @@ function Header() {
     setLangTooltip(false);
   };
 
-  let url = process.env.REACT_APP_URL;
+  let url = process.env.REACT_APP_API_URL;
 
   const newImgArr = [];
 

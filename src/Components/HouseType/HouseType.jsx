@@ -10,7 +10,7 @@ import axios from 'axios';
 import style from './HouseType.module.scss';
 import { ReactComponent as SaleIcon } from '../../Assets/Img/Icon/house.svg'
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function HouseType({ htype_id, sethType }) {
   const [houseType, setHouseType] = useState([]);

@@ -27,7 +27,7 @@ import "aos/dist/aos.css";
 // Import useContext => Localization
 import { Context } from "../../Context/LangContext";
 import content from "../../Localization/Content";
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 let CHATKEY = process.env.REACT_APP_CHAT_KEY;
 
 function Chat() {

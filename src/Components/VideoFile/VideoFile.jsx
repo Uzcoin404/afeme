@@ -11,7 +11,7 @@ import { Context } from '../../Context/LangContext';
 import content from '../../Localization/Content';
 import style from '../ImageFile/ImageFile.module.scss'
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function VideoFile({ video, setVideo }) {
 

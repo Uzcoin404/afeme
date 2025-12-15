@@ -15,7 +15,7 @@ import content from '../../Localization/Content';
 
 import Compressor from 'compressorjs';
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function ImageFile({ photo, setPhoto }) {
     const [image, setImage] = useState([]);

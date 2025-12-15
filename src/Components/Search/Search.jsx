@@ -20,7 +20,7 @@ import content from "../../Localization/Content";
 import "../Search/Search.scss";
 import searchIcon from "../../Assets/Img/search-icon.svg";
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function Search({ map = false }) {
 

@@ -145,10 +145,10 @@ performanceMetrics.log();
 
 ```bash
 # Development (.env)
-REACT_APP_URL="https://afeme.ddev.site/api/"
+REACT_APP_API_URL="https://afeme.ddev.site/api/"
 
 # Production (.env.production)
-REACT_APP_URL="https://api.production.com/"
+REACT_APP_API_URL="https://api.production.com/"
 GENERATE_SOURCEMAP=false
 CI=false
 ```

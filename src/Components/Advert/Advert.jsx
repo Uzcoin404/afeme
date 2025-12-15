@@ -25,7 +25,7 @@ import arrowRight from "../../Assets/Img/arrow-right.svg";
 
 // Import => Style Component
 import "./Advert.scss";
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function Advert() {
     const { postID } = useParams();

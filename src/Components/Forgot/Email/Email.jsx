@@ -8,7 +8,7 @@ import Header from '../../../Components/Header/Header';
 
 
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 function Email() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { lang, setLang } = useContext(Context);

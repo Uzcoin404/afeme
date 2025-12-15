@@ -10,7 +10,7 @@ import ReactStars from "react-rating-stars-component";
 // Import => Mui
 import Button from '@mui/material/Button';
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function ReytingModal({ userId, userData, elReytingModal }) {
     const [reting, setReting] = useState('')

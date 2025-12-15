@@ -19,7 +19,7 @@ import "../../Components/UserProfil/UserProfil.scss";
 import axios from "axios";
 import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function UserProfil() {
     const { lang, setLang } = useContext(Context);

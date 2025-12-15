@@ -25,7 +25,7 @@ const DefaultZoom = 10;
 // Fallback coordinates (if IP data is unavailable or incomplete)
 const FallbackCenter = [41.311158, 69.279737]; // Tashkent, Uzbekistan
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function MapComponent({
   street,

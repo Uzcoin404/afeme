@@ -17,7 +17,7 @@ import "./Modal.scss";
 import { Context } from '../../../Context/LangContext';
 import content from '../../../Localization/Content';
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function Modal({ elModal }) {
     const second = useRef(null);

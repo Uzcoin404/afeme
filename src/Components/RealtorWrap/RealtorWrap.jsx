@@ -24,7 +24,7 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 const elLoadingArrey = [1, 2, 3, 4, 5, 6];
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function RealtorWrap() {
 

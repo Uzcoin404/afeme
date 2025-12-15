@@ -17,7 +17,7 @@ import "../Nav/Nav.scss";
 import GoogleImg from "../../Assets/Img/google.svg";
 import LogOut from "../../Utils/logOut";
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function Nav({ elHeader }) {
 

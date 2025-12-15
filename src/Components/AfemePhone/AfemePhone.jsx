@@ -23,7 +23,7 @@ function AfemePhone() {
                 <div className="afemePhone__content">
                     <h3 className="afemePhone__title"><span>Afeme </span>{content[lang].afemePhoneTitle}</h3>
                     <p className="afemePhone__text">{content[lang].afemePhoneDescr}</p>
-                    <a href="#"><img src={PlayStore} alt="" /></a>
+                    <a href="#" onClick={(e) => {e.preventDefault(); alert("Mobile app is under development")}}><img src={PlayStore} alt="" /></a>
                 </div>
                 <img className="afemePhone__img-phone" src={afemePhone} alt="afeme" />
                 <span className="afemePhone__bubbles bubbles1"><Logo width="80" height="80"/></span>

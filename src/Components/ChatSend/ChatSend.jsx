@@ -6,7 +6,7 @@ import PaperClip from "../../Assets/Img/Icon/paperclip.svg";
 import PaperPlane from "../../Assets/Img/Icon/paper-plane.svg";
 import "./ChatSend.scss";
 
-let url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_API_URL;
 
 function ChatSend({ chatUser, messages, getMessages, getChats }) {
 
