@@ -144,7 +144,6 @@ function ImageFile({ photo, setPhoto }) {
             })
         }
     }
-
     return (
         <div className={style.wrapper}>
             <p>{content[lang].adverd_office_img}</p>
@@ -153,7 +152,7 @@ function ImageFile({ photo, setPhoto }) {
             <div className={style.images}>
                 {photo.map((i) => (
                     <div className={style.img} key={v4()}>
-                        <img src={i} alt={null} className={style.img1} />
+                        <img src={process.env.REACT_APP_URL + i} alt={null} className={style.img1} />
                         <Trash onClick={(e) => Delete(i)} className={style.icon} />
                     </div>
                 ))}

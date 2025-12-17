@@ -41,7 +41,7 @@ function AdvertPlacemark({ data }) {
                         balloonContentBody: `<div class="mapBaloon">
                                         <div class="mapBaloon__header">
                                             <a href="${advertLink}" target="blank" mapBaloon__img__link>
-                                                <img src=${advert?.image[0]?.url} class="mapBaloon__img" alt=""/>
+                                                <img src=${process.env.REACT_APP_URL + advert?.image[0]?.url} class="mapBaloon__img" alt=""/>
                                             </a>
                                         </div>
                                         <div class="mapBaloon__main">

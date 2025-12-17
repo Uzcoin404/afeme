@@ -92,6 +92,10 @@
         display: -webkit-box;
         margin-right: 5px;
     }
+    .mapBaloon__img {
+        width: 100%;
+        max-height: 180px;
+    }
 }
 @media (max-width: 576px) {
     #advertMap{

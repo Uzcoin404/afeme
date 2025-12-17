@@ -1,6 +1,3 @@
-// Import => React
-import React from "react";
-
 // Import => Style Container
 import "./Container.scss";
 

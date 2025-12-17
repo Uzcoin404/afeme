@@ -277,267 +277,272 @@ const content = {
     },
     en: {
         chat: "Chat",
+
         // Header
-        add: "Add an ad",
-        fromBtn: "Sign in",
-        placeTooltip: "Your location",
-        langTooltip: "Change language",
-        loveTooltip: "Your likes",
-        currencyTooltip: "Change currency",
-        // Nav
-        sal: "Sales",
-        rent: "Rent",
-        rel: "Realtors",
+        add: "Post a Listing", // More natural than "Add an ad"
+        fromBtn: "Log In", // More common than "Sign in" for a button
+        placeTooltip: "Location", // Simplified
+        langTooltip: "Change Language",
+        loveTooltip: "Favorites", // Simplified from "Your likes"
+        currencyTooltip: "Change Currency",
+
+        // Nav (Navigation Bar)
+        sal: "Buy", // or "For Sale"
+        rent: "Rent", // Stays the same
+        rel: "Agents", // More common than "Realtors" in many regions
         mor: "More",
-        // Hero
-        hero_title: "Find it. Tour it. Own it.",
+
+        // Hero (Main Banner)
+        hero_title: "Find it. Tour it. Own it.", // A good marketing tagline
         hero_search: "Search",
-        // Main
-        nearHomes: "Nearby houses",
-        populr_title: "Popular Houses",
-        new_title: "New Buildings",
-        see_desc: "See more",
-        reltor_aside_title: "Realtors",
+
+        // Main (Homepage Content)
+        nearHomes: "Homes Nearby",
+        populr_title: "Popular Listings", // More professional than "Popular Houses"
+        new_title: "New Developments", // "New Buildings" is often called "New Developments"
+        see_desc: "View All", // More direct than "See more"
+        reltor_aside_title: "Featured Agents", // Better than just "Realtors"
+        // 'error_desc' is missing in 'en' but should be:
+        error_desc: "Failed to fetch data", 
+
         // Footer
-        footer_text: "National Platform for Remote Sale",
-        users_title: "Users",
-        contact_us: "Contact us",
-        social_networks: "We are on social media",
+        footer_text: "National Platform for Remote Property Transactions", // More descriptive
+        users_title: "For Users",
+        contact_us: "Contact Us",
+        social_networks: "Follow Us", // More dynamic than "We are on social media"
 
+        // About/Marketing
         we: "About Us",
-        why_afeme_title: "Why Afeme ?",
-        why_afeme_bot: "AFEME TELEGRAM BOT AND CHANNEL",
-        why_afeme_botdesc: "Try our Telegram bot and channel",
+        why_afeme_title: "Why Choose Afeme?", // More engaging than "Why Afeme?"
+        why_afeme_bot: "AFEME BOT & CHANNEL", // Simpler case
+        why_afeme_botdesc: "Check out our Telegram bot and channel", // More direct
 
-        // Form Modal
-        form_modal_title: "Sign in",
-        from_modal_inputtel: "Phone number",
-        from_modal_btnsubmit: "Get started",
-        from_sign: "Register",
+        // Form Modal (Login Modal)
+        form_modal_title: "Log In to Your Account", // More complete than "Sign in"
+        from_modal_inputtel: "Phone Number",
+        from_modal_btnsubmit: "Continue", // Or "Log In"
+        from_sign: "Register", // or "Create Account"
         help: 'Help',
 
-        // Form Page
-        form_select_jis: "Individual",
-        form_select_vil: "Province",
-        from_select_nam: "Name",
-        form_select_nam_req: "Enter name",
-        form_select_las: "Lastname",
-        form_select_las_req: "Enter lastname",
-        form_select_email: "Email",
-        form_select_email_req: "Enter your email address",
-        form_select_email_err: "The email address is invalid",
-        form_select_pas: "Passport",
-        form_select_tel: "Phone number",
-        form_select_tel_req: "Enter phone number",
-        form_myaccount: "I have an account",
+        // Form Page (Registration/Profile Page)
+        form_select_jis: "Individual", // Stays as is
+        form_select_vil: "Region/Province", // Added "Region"
+        from_select_nam: "First Name", // Explicitly "First Name"
+        form_select_nam_req: "Please enter your name", // More polite
+        form_select_las: "Last Name",
+        form_select_las_req: "Please enter your last name",
+        form_select_email: "Email Address", // More formal
+        form_select_email_req: "Please enter your email address",
+        form_select_email_err: "Invalid email address", // Simplified error
+        form_select_pas: "Passport ID", // Added "ID"
+        form_select_tel: "Phone Number",
+        form_select_tel_req: "Please enter your phone number",
+        form_myaccount: "I already have an account",
         form_select_type_sh: 'Personal',
-        form_select_type_b: 'Bussines',
-        rexperience: 'Experience',
-        bio: 'About your self',
+        form_select_type_b: 'Business',
+        rexperience: 'Years of Experience', // More descriptive
+        bio: 'About Yourself', // More direct
         have: 'I have an account',
-        sing: 'SingUp',
+        sing: 'Sign Up', // More common action
         submit: 'Submit',
 
-        // Reltos Page
-        reltor_title: "Directory of Realtors",
-        reltor_lenght: "founded this Realtors",
-        reltor_sort: "Sorting",
+        // Realtors Page
+        reltor_title: "Agent Directory", // Professional term
+        reltor_lenght: "Realtors Found", // Rephrased for correct placement: "X Realtors Found"
+        reltor_sort: "Sort By", // More common UI term
+        // 'no_post' is missing in 'en' but should be:
+        no_post: "You have not posted any listings yet",
 
-        // User
-        user_profil: "My profile",
-        user_profil_message: "My Messages",
-        user_profil_ads: "My listings",
+        // Errors
+        apiError: "Failed to load data. Please try again.", // More helpful
+        internetError: "Connection lost. Please check your internet connection.", // More explicit
+
+        // User Profile
+        user_profil: "My Profile",
+        user_profil_message: "Messages",
+        user_profil_ads: "My Listings",
         user_profil_favorintes: "Favorites",
-        user_profil_news: "News",
-        user_profil_clos: "Logout",
+        user_profil_news: "News & Updates",
+        user_profil_clos: "Log Out",
 
-        //Help
-        title: 'Help',
-        title_descr: 'We are always ready to help',
+        // Help
+        title: 'Help Center', // More formal
+        title_descr: 'We are always ready to assist you.', // More natural
         name: 'Name',
-        name_error: 'Enter a name',
-        number: 'Telephone Number',
-        number_error: 'Enter a number',
-        email: 'Email',
-        email_error: 'Email address Incorrect',
-        message_type: 'Message Type',
-        type_taklif: 'Offer',
+        name_error: 'Please enter your name',
+        number: 'Phone Number',
+        number_error: 'Please enter your phone number.', // Added punctuation
+        email: 'Email Address',
+        email_error: 'Invalid Email Address',
+        message_type: 'Inquiry Type',
+        type_taklif: 'Suggestion',
         type_shiqoyat: 'Complaint',
-        descr: 'Leave your message',
-        btn: 'Send',
+        descr: 'Enter Your Message', // Simplified
+        btn: 'Send Message',
 
-        // AdvertPage
-        advert_title: "Add an ad",
-        advert_rent: "Rent",
-        adverd_sell: "Sale",
-        adverd_mortgage: "Mortgage",
-        adverd_build_title: "Building Types",
-        adverd_sotish_turi: "Sales Types",
-        adverd_house: "Courtyard",
-        adverd_office: "Office",
+        // AdvertPage (Add/Edit Listing Form)
+        advert_title: "Post a Listing",
+        advert_rent: "For Rent",
+        adverd_sell: "For Sale",
+        adverd_mortgage: "Mortgage/Installment", // More explicit
+        adverd_build_title: "Property Type", // More general term
+        adverd_sotish_turi: "Transaction Type", // Better phrasing for "Sales Types"
+        adverd_house: "House/Villa", // Added "Villa"
+        adverd_office: "Office Space",
         adverd_room: "Room",
         adverd_apartment: "Apartment",
-        adverd_dala: "Field Yard",
-        adverd_adres_office: "Office address",
+        adverd_dala: "Country House/Dacha", // Added Dacha for context
+        adverd_adres_office: "Property Address", // More general for any property
         adverd_adres_city: "City",
-        adverd_office: "Address",
-        adverd_house_num: "House number",
-        adverd_about_the_office: "About the office",
-        choose: 'Choose',
-        adverd_about_1: "Built Year:",
-        adverd_about_2: "Rooms:",
-        adverd_about_3: "Area:",
+        adverd_office: "Street Address", // Changed to differentiate from Property Address
+        adverd_house_num: "House Number",
+        adverd_about_the_office: "Property Details", // Better fit for any property type
+        choose: 'Select', // More common verb
+        adverd_about_1: "Year Built:",
+        adverd_about_2: "Number of Rooms:",
+        adverd_about_3: "Total Area:",
         adverd_about_33: "Kitchen",
-        adverd_about_34: "Room",
+        adverd_about_34: "Living Area", // More appropriate for 'Xona'
         adverd_about_35: "Total",
-        adverd_about_36: "Meter Square",
-        adverd_about_37: "Sotikh",
-        adverd_about_38: "from:",
+        adverd_about_36: "Square Meters (m²)", // Added unit
+        adverd_about_37: "Sotikh (Area in AR)", // Added AR for context
+        adverd_about_38: "From:",
         adverd_about_4: "Floor:",
-        adverd_about_5: "Repair status:",
-        adverd_about_6: "Materials:",
-        adverd_about_evro: "EUR",
-        adverd_about_normal: "O'rtacha",
-        adverd_about_tiz: "Tamir talab",
-        adverd_about_gsh: "G'isht",
-        adverd_about_bet: "Beton",
-        adverd_about_met: "Metall",
-        adverd_documents: "Office Drawings and Documents:",
-        adverd_documents_dow: "Download House Documents",
-        adverd_office_img: "Office pictures:",
-        adverd_office_drop_img: "select a picture",
-        adverd_office_drop_video: "select a video",
-        adverd_office_video: "Office videos",
-        adverd_office_textior: "Tell me a little about the house...",
-        adverd_office_price: "Office price:",
-        adverd_office_price_info: "Enter the price in sum",
-        adverd_submit: "Save",
+        adverd_about_5: "Repair Condition:",
+        adverd_about_6: "Building Materials:",
+        adverd_about_evro: "Euro Renovation", // More specific
+        adverd_about_normal: "Average", // Keep
+        adverd_about_tiz: "Needs Repair", // Corrected phrasing
+        adverd_about_gsh: "Brick",
+        adverd_about_bet: "Concrete",
+        adverd_about_met: "Metal Structure",
+        adverd_documents: "Floor Plan & Documents:",
+        adverd_documents_dow: "Upload Property Documents",
+        adverd_office_img: "Property Images:",
+        adverd_office_drop_img: "Select Image(s)",
+        adverd_office_drop_video: "Select Video(s)",
+        adverd_office_video: "Property Videos:",
+        adverd_office_textior: "Provide a brief description of the property...",
+        adverd_office_price: "Property Price:",
+        adverd_office_price_info: "Enter price in Uzbek Sum (UZS)",
+        adverd_submit: "Post Listing", // Or "Save Listing"
 
-        afemePhoneTitle: `now it will always be in your hands`,
-        afemePhoneDescr: 'In the app, you can manage housing utilities and monitor the process: we report all the important things.',
-        partners_title: 'Our partners',
+        // Marketing Copy
+        afemePhoneTitle: `always in your hands`, // Simpler
+        afemePhoneDescr: 'Manage utilities and monitor the process right from the app. We notify you of all important updates.',
+        partners_title: 'Our Partners',
         partners_descr: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium ducimus in, voluptate deserunt magni fugit error atque modi iure maiores possimus nesciunt? Tempore odit ratione sunt, ut dignissimos, exercitationem a mollitia necessitatibus, aliquam asperiores neque! Quae id quod voluptate quos.',
 
-        priceFrom: "from",
-        priceTo: "to",
+        priceFrom: "From",
+        priceTo: "To",
 
-        // Advert
-        contactBtn: "Contact",
-        sendMessageBtn: "Message",
-        viewInMap: "View in Map",
-        street: "street",
+        // Advert (Single Listing View)
+        contactBtn: "Call Seller", // More specific action
+        sendMessageBtn: "Send Message",
+        viewInMap: "View on Map",
+        street: "Street",
         description: "Description",
-        detailedView: "See more",
+        detailedView: "View Detailed Information",
 
-        //Personal
+        // Personal (Profile Edit)
         saveBtn: 'Save Changes',
-        userProfilName: 'Name',
-        userProfilLastName: 'LastName',
+        userProfilName: 'First Name',
+        userProfilLastName: 'Last Name',
         userProfilPhone: 'Phone Number',
-        userProfilPassport: 'Passport',
+        userProfilPassport: 'Passport ID',
 
-        //SideBar
-        sMenu: `Go to home page`,
-        sAdd: `Add an ad`,
-        sFeatures: 'Features',
+        // SideBar
+        sMenu: `Go to Home`,
+        sAdd: `Post a Listing`,
+        sFeatures: 'Favorites',
         sHelp: 'Help',
-        sAds: 'Adverts',
+        sAds: 'My Listings',
         sLogout: 'Log Out',
 
-        notfound: 'No pictures available',
+        notfound: 'No images available',
 
-        //Chat
+        // Chat
         ChatNews: 'News',
-        doyou: 'You might like',
+        doyou: 'You May Also Like',
 
-        liked: `Liked`,
-        err: 'Unsuccessful!!!',
-        back: 'Return Back',
-        confirm: 'enter the sms code you went to !!!',
-        to: 'to',
-        codeMessage: 'Enter SMS Code!!!',
-        succ: 'Successful !!!',
-        ChatNews: 'News',
+        liked: `Add to Favorites`,
+        err: 'Action Unsuccessful!',
+        back: 'Go Back',
+        confirm: 'Enter the SMS code received!',
+        to: 'to', // e.g., "Sent SMS code to [number]"
+        codeMessage: 'Please enter the SMS Code!',
+        succ: 'Action Successful!',
         Chat: 'Seller',
-        addPic: `Advert Picture`,
-        doyou: 'You might like',
+        addPic: `Listing Image`,
+        // repeated liked, err, back, confirm, to, codeMessage, succ are redundant and should be removed in production code.
 
-        liked: `Liked`,
-        err: 'Unsuccessful!!!',
-        back: 'Return Back',
-        confirm: 'enter the sms code you went to !!!',
-        to: 'to',
-        codeMessage: 'Enter SMS Code!!!',
-        succ: 'Successful !!!',
-
-        noResults: "There are currently no ads posted for this request",
-        changeFilterThings: "Try changing something in the filter",
-        cleanFilterThings: "Try cleaning the filter",
-        viaWith: "search through",
+        noResults: "Currently, no listings match this search.", // Better phrasing
+        changeFilterThings: "Try adjusting the filter settings.",
+        cleanFilterThings: "Try clearing the filter.",
+        viaWith: "search via", // Rephrased for flow: "Search via Map"
         map: "Map",
 
         // Search
-        saleType: "Sale type",
-        homeType: "Home type",
-        searchPlaceholder: "Address, city, region, village, etc",
-        clean: "Clean",
+        saleType: "Sale",
+        homeType: "Type",
+        searchPlaceholder: "Address, city, region, or village...", // Simplified
+        clean: "Clear Filters",
         viewOnMap: "View on Map",
         filter: "Filter",
-        forgot: 'Forgot Password',
-        forgot_title: 'Password reset',
-        forgot_descr: 'Enter your email below to reset your password',
-        forgot_error: 'This email address does not exist',
-        forgot_title_suc: 'Successfully',
-        forgot_descr_suc: 'An SMS message has been sent to the email address you entered',
-        reset_pass: 'Password update',
-        reset_pass_descr: 'Enter your email below to reset your password',
-        form_select_pass: 'Password',
-        form_select_pass_req: 'Enter new password',
-        form_select_code: 'CODE',
-        form_select_code_req: 'Enter the code sent to your email address',
-        forgot_reset_descr: 'Your password has been successfully changed',
+        forgot: 'Forgot Password?',
+        forgot_title: 'Reset Password',
+        forgot_descr: 'Enter your email address below to reset your password.',
+        forgot_error: 'This email address does not exist.',
+        forgot_title_suc: 'Success',
+        forgot_descr_suc: 'An SMS code has been sent to the email address you entered.',
+        reset_pass: 'Update Password',
+        reset_pass_descr: 'Enter your new password and the verification code below.', // Corrected description
+        form_select_pass: 'New Password',
+        form_select_pass_req: 'Please enter a new password',
+        form_select_code: 'Verification Code',
+        form_select_code_req: 'Enter the verification code sent to your email address',
+        forgot_reset_descr: 'Your password has been successfully changed.',
 
         //Post Edit
-        edit_postTitle: 'Edit Post',
-        edit_post:' chi Elon',
+        edit_postTitle: 'Edit Listing',
+        edit_post:' Listing ID:', // Used to prepend the ID number
         edit_saleType: 'Sale Type',
-        edit_houseType: 'House Type',
-        edit_repairType: 'Repair condition',
-        edit_materialType: 'Construction Material',
-        edit_Region: 'Province',
+        edit_houseType: 'Property Type',
+        edit_repairType: 'Repair Condition',
+        edit_materialType: 'Building Material',
+        edit_Region: 'Region/Province',
         edit_City: 'City',
         edit_Street: 'Street',
-        edit_House: 'House',
-        edit_Kitchen: 'Kitchen',
-        edit_Living: 'Living',
-        edit_Total: 'Total',
-        edit_Type: 'Total Area Type',
-        edit_M2: 'Square meters',
-        edit_AR: 'AR',
-        edit_Date: 'Date',
-        edit_Rooms: 'Rooms',
-        edit_Floor: 'Floor',
-        edit_Flat: 'Floors',
+        edit_House: 'House Number',
+        edit_Kitchen: 'Kitchen Area',
+        edit_Living: 'Living Area',
+        edit_Total: 'Total Area',
+        edit_Type: 'Area Type',
+        edit_M2: 'Square Meters',
+        edit_AR: 'Sotikh (AR)',
+        edit_Date: 'Year Built',
+        edit_Rooms: 'Number of Rooms',
+        edit_Floor: 'Floor Number',
+        edit_Flat: 'Total Floors', // Total number of floors in the building
         edit_Video: 'Add Video',
         edit_Docs: 'Add Document',
         edit_Descr: 'Description',
         edit_Price: 'Price',
-        edit_Submit: 'Affirmation',
+        edit_Submit: 'Save Changes',
 
-        // Advert Tools
-        advert_id:'Post ID',
-        advert_areas:'square',
+        // Advert Tools (Listing Details)
+        advert_id:'Listing ID',
+        advert_areas:'Area',
         advert_kitchen:'Kitchen',
-        advert_living:'Residential',
+        advert_living:'Living',
         advert_total:'Total',
-        advert_flat:'flat',
-        advert_floor:'floor',
-        advert_date:'Built year',
+        advert_flat:'floors', // Used in context: "X floors"
+        advert_floor:'floor', // Used in context: "on floor X"
+        advert_date:'Year Built',
         advert_year:'year',
-        advert_materials:'Materails',
-        advert_repairs:'Repair condition',
+        advert_materials:'Materials',
+        advert_repairs:'Repair Condition',
         chat_back:'Back',
-
     },
     ru: {
         chat: "Чат",

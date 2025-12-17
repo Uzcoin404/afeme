@@ -79,7 +79,6 @@ function ReltorCobinet() {
     function showMap() {
         if (userPosts) {
             if (userPosts.length > 0) {
-                console.log(userData);
                 return (
                     <>
                         <h2 className="title">Agent E'lonlari</h2>

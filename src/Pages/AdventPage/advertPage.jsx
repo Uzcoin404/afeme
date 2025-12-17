@@ -114,7 +114,7 @@ function AdvertPage() {
         }
       })
       .catch(function (err) {
-        console.log(err);
+        handleErr();
       })
   }
 

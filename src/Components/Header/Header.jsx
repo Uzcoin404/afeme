@@ -185,14 +185,6 @@ function Header() {
             Mening e'lonlarim
           </Link>
         </MenuItem>
-        <MenuItem>
-          <Link to={"/chat"} className="profile__menu__link">
-            <ListItemIcon>
-              <ChatIcon />
-            </ListItemIcon>
-            Xabarlar
-          </Link>
-        </MenuItem>
         <Divider />
         <MenuItem>
           <Link to={"/userprofil"} className="profile__menu__link">

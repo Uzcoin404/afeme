@@ -149,7 +149,6 @@ function MapComponent({
       setCities([]);
     }
   };
-
   return (
     <div>
       <div className={style.InpG}>

@@ -12,7 +12,8 @@ export default function UserContactButtons({ data, isLoading = null }) {
 
     const userID = localStorage.getItem("user_id");
     const { lang } = useContext(Context); 
-    let ownerChat = `/chat#${data?.id}`;
+    // let ownerChat = `/chat#${data?.id}`;
+    let ownerChat = `/userprofil`;
 
     if (!isLoading) {
         if (userID != data.id) {

@@ -9,7 +9,7 @@
         height: 440px;
     }
     @media (max-width: 400px) {
-        height: 375px;
+        height: 350px;
     }
 }
 .main{
@@ -26,6 +26,9 @@
             }
             .newBuildings__content{
                 margin-top: 40px;
+            }
+            .panel {
+                padding: 0;
             }
         }
     }

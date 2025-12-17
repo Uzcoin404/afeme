@@ -54,7 +54,7 @@ function CardTools(data) {
                 );
             }
             setAdvertTypeImg(
-                `https://ali98.uz/public/admin2/categories/${data?.htype_id?.icon}`
+                `${process.env.REACT_APP_STORAGE_URL + data?.htype_id?.icon}`
             );
         }
     }, [data, currency, lang]);

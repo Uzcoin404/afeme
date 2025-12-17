@@ -14,7 +14,7 @@ const AdvertPage = lazy(() => import('./Pages/AdventPage/advertPage'));
 const Adverts = lazy(() => import('./Pages/Adverts/Adverts'));
 const Advert = lazy(() => import('./Pages/Advert/Advert'));
 const CatalogRealtor = lazy(() => import('./Pages/CatalogOfRealtors/CatalogRealtors'));
-const Chat = lazy(() => import('./Pages/ChatPage/ChatPage'));
+// const Chat = lazy(() => import('./Pages/ChatPage/ChatPage'));
 const Page404 = lazy(() => import('./Pages/404/404'));
 const ReltorCob = lazy(() => import('./Pages/ReltorCobinet/Reltor'));
 const UsProfil = lazy(() => import('./Pages/UserProfil/UsProfil'));
@@ -83,7 +83,7 @@ function App() {
                     <Route path='/userads' element={<UserAdsPage />} />
                     <Route path='/userfavorites' element={<UserFavoritesPage />} />
                     <Route path='/userpostedit/:postID' element={<UserPostEditPage/>} />
-                    <Route path='/chat' element={<Chat />} />
+                    {/* <Route path='/chat' element={<Chat />} /> */}
                     <Route path='/help' element={<Help />} />
                     <Route path='/map' element={<SearchMap />} />
                     <Route path='/forgot' element={<Email />} />

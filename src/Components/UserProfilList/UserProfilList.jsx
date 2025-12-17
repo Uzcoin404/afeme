@@ -124,7 +124,7 @@ function UserProfilList() {
                             </NavLink>
                         </li>
 
-                        <li className="user-prof__item">
+                        {/* <li className="user-prof__item">
                             <NavLink
                                 to={"/chat"}
                                 className="user-prof__link">
@@ -133,7 +133,7 @@ function UserProfilList() {
                                     {content[lang].user_profil_message}
                                 </p>
                             </NavLink>
-                        </li>
+                        </li> */}
 
                         <li className="user-prof__item">
                             <NavLink

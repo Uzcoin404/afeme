@@ -26,167 +26,162 @@ import RightArrow from "../../Assets/Img/arrow-right.svg";
 import "./Main.scss";
 
 function Main() {
-    const { lang, setLang } = useContext(LangContext);
-    const { IP, setIP } = useContext(IPContext);
-    const { user, setUser } = useContext(UserContext);
+  const { lang, setLang } = useContext(LangContext);
+  const { IP, setIP } = useContext(IPContext);
+  const { user, setUser } = useContext(UserContext);
 
-    const [data, setData] = useState(null);
-    const [adverts, setAdverts] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [rekData, setRekData] = useState([]);
+  const [data, setData] = useState(null);
+  const [adverts, setAdverts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [rekData, setRekData] = useState([]);
 
-    let url = process.env.REACT_APP_API_URL;
+  let url = process.env.REACT_APP_API_URL;
 
-    const [reltData, setReltData] = useState([]);
+  const [reltData, setReltData] = useState([]);
 
-    useEffect(() => {
-        setIsLoading(true);
-        axios
-            .get(`${url}popular/8`)
-            .then((response) => {
-                let newData = response.data.data;
-                if (newData && newData.length > 0) {
-                    setData(response.data);
-                    setAdverts(response.data.data);
-                } else {
-                    setData(null)
-                }
-            })
-            .catch(() => {
-                setData(null)
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
-        axios
-            .get(`https://ipapi.co/json`)
-            .then((response) => {
-                if (response.status == 200) {
-                    setIP(response.data);
-                    window.localStorage.setItem('IP', JSON.stringify(IP));
-                }
-            });
-    }, []);
+  const defaultLatitude = 40.788059;
+  const defaultLongitude = 72.308069;
 
-    useEffect(() => {
-        axios.get(`${url}advertisements`)
-            .then(res => {
-                const resdata = res?.data;
-                setRekData(resdata)
-            })
+  const initialLatitude = IP?.latitude || defaultLatitude;
+  const initialLongitude = IP?.longitude || defaultLongitude;
 
-        axios.get(`${url}reltors`)
-        .then(res => {
-            const persons = res.data.data;
-            setReltData(persons)
-        })
-    }, [])
+  const initialCoordinates = [initialLatitude, initialLongitude];
 
-
-    function showCards(amount) {
-        if (isLoading) {
-            return <CardSkeleton amount={amount} />;
-
-        } else if (data) {
-            return adverts?.slice(0, 8).map((row) => {
-
-                return <Cards data={row} />;
-            });
+  useEffect(() => {
+    setIsLoading(true);
+    axios
+      .get(`${url}popular/8`)
+      .then((response) => {
+        let newData = response.data.data;
+        if (newData && newData.length > 0) {
+          setData(response.data);
+          setAdverts(response.data.data);
         } else {
-            return <ApiError />;
+          setData(null);
         }
+      })
+      .catch(() => {
+        setData(null);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+    axios.get(`https://ipapi.co/json`).then((response) => {
+      if (response.status == 200) {
+        setIP(response.data);
+        window.localStorage.setItem("IP", JSON.stringify(IP));
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    axios.get(`${url}advertisements`).then((res) => {
+      const resdata = res?.data;
+      setRekData(resdata);
+    });
+
+    axios.get(`${url}reltors`).then((res) => {
+      const persons = res.data.data;
+      setReltData(persons);
+    });
+  }, []);
+
+  function showCards(amount) {
+    if (isLoading) {
+      return <CardSkeleton amount={amount} />;
+    } else if (data) {
+      return adverts?.slice(0, 8).map((row) => {
+        return <Cards data={row} />;
+      });
+    } else {
+      return <ApiError />;
     }
+  }
 
-    return (
-        <main className="main">
-            <Container className="container" maxWidth="1300px">
-                <div className="main__content">
-                    <div className="sections">
-                        <section className="section recommend">
-                            <Typography variant="h3" className="section__title">
-                                {content[lang].populr_title}
+  return (
+    <main className="main">
+      <Container className="container" maxWidth="1300px">
+        <div className="main__content">
+          <div className="sections">
+            <section className="section recommend">
+              <Typography variant="h3" className="section__title">
+                {content[lang].populr_title}
+              </Typography>
+              <div className="cards">{showCards(8)}</div>
+              <Box className="viewAll">
+                <a href="/adverts" className="viewAll__link">
+                  {content[lang].see_desc}
+                </a>
+                <img src={RightArrow} alt="" />
+              </Box>
+            </section>
+          </div>
+          <section className="newBuildings">
+            <div className="newBuildings__content">
+              <Typography variant="h3" className="section__title">
+                {content[lang].new_title}
+              </Typography>
+              <div className="scards">
+                <NewBuildingsCard />
+              </div>
+            </div>
+            <div className="panel">
+              <div style={{ marginTop: "40px" }} id="advertMap">
+                <AdvertMap coordinate={initialCoordinates} zoom={12} />
+              </div>
+
+              <Box className="realtors">
+                <Typography variant="h5" className="realtors__title">
+                  {content[lang].rel}
+                </Typography>
+
+                <NavLink to={"/catalogreltor"} className="realtors__list">
+                  {reltData.slice(0, 6).map((rel) => {
+                    return (
+                      <>
+                        <Box className="realtor">
+                          <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI7M4Z0v1HP2Z9tZmfQaZFCuspezuoxter_A&usqp=CAU"
+                            alt=""
+                          />
+                          <div className="realtors__content">
+                            <Typography variant="h6" className="realtors__name">
+                              {rel.name} {rel.lastname}
                             </Typography>
-                            <div className="cards">{showCards(8)}</div>
-                            <Box className="viewAll">
-                                <a href="/adverts" className="viewAll__link">
-                                    {content[lang].see_desc}
-                                </a>
-                                <img src={RightArrow} alt="" />
-                            </Box>
-                        </section>
-                    </div>
-                    <section className="newBuildings">
-                        <div className="newBuildings__content">
-                            <Typography variant="h3" className="section__title">
-                                {content[lang].new_title}
-                            </Typography>
-                            <div className="scards">
-                                <NewBuildingsCard />
-                            </div>
-                        </div>
-                        <div className="panel">
-                            <div style={{marginTop:'40px'}} id="advertMap"><AdvertMap coordinate={[40.788059, 72.308069]} zoom={9}/></div>
+                            <p className="realtors__offer">
+                              {rel.posts.length} ta taklif
+                            </p>
+                          </div>
+                        </Box>
+                      </>
+                    );
+                  })}
+                </NavLink>
+                <NavLink to={"/catalogreltor"}>
+                  <p className="more">Barchasini korish</p>
+                </NavLink>
+              </Box>
 
-                            <Box className="realtors">
-                                <Typography
-                                    variant="h5"
-                                    className="realtors__title"
-                                >
-                                    {content[lang].rel}
-                                </Typography>
-
-                                <NavLink
-                                    to={"/catalogreltor"}
-                                    className="realtors__list"
-                                >
-
-                                    {
-                                        reltData.slice(0, 6).map(rel => {
-                                            return (
-                                                <>
-                                                    <Box className="realtor">
-                                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI7M4Z0v1HP2Z9tZmfQaZFCuspezuoxter_A&usqp=CAU" alt="" />
-                                                        <div className="realtors__content">
-                                                            <Typography
-                                                                variant="h6"
-                                                                className="realtors__name"
-                                                            >
-                                                                {rel.name} {rel.lastname}
-                                                            </Typography>
-                                                            <p className="realtors__offer">
-                                                                {rel.posts.length} ta taklif
-                                                            </p>
-                                                        </div>
-                                                    </Box>
-                                                </>
-                                            )
-                                        })
-                                    }
-                                </NavLink>
-                                <NavLink to={'/catalogreltor'}>
-                                    <p className="more">Barchasini korish</p>
-                                </NavLink>
-                            </Box>
-
-                            <section className="advertising">
-                                {
-                                    rekData?.map((res) => {
-                                        return (
-                                            <>
-                                                <a href={res?.url}>
-                                                    <img className="advertising__img" src={res?.image} alt="" />
-                                                </a>
-                                            </>
-                                        )
-                                    })
-                                }
-                            </section>
-
-                        </div>
-                    </section>
-                </div>
-            </Container>
-        </main>
-    );
+              <section className="advertising">
+                {rekData?.map((res) => {
+                  return (
+                    <>
+                      <a href={res?.url}>
+                        <img
+                          className="advertising__img"
+                          src={res?.image}
+                          alt=""
+                        />
+                      </a>
+                    </>
+                  );
+                })}
+              </section>
+            </div>
+          </section>
+        </div>
+      </Container>
+    </main>
+  );
 }
 export default Main;
