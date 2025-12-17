@@ -1,50 +1,53 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="uz" dir="ltr">
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/Logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link href="/dist/output.css" rel="stylesheet">
-  <title>Afeme Uz</title>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <meta name="theme-color" content="#1976d2" />
+
+  <title>Afeme</title>
+  <meta name="description" content="O'zbekistonda uylar va ko'chmas mulk savdosi" />
+  <link rel="canonical" href="https://afeme.suyunbek.uz/">
+
+  <link rel="icon" href="%PUBLIC_URL%/logo.svg" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.svg" />
+  <link rel="manifest" href="%PUBLIC_URL%/asset-manifest.json" />
+
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Afeme" />
+  <meta property="og:description" content="Real Estate Marketplace in Uzbekistan" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="%PUBLIC_URL%/preview.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Afeme" />
+  <meta name="twitter:description" content="Real Estate Marketplace in Uzbekistan" />
+  <meta name="twitter:image" content="%PUBLIC_URL%/preview.webp" />
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Afeme",
+      "url": "https://afeme.suyunbek.uz/",
+      "logo": "https://afeme.suyunbek.uz/logo.svg",
+      "description": "O'zbekistondagi zamonaviy ko'chmas mulk platformasi."
+    }
+</script>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
 
-  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVHE4V9WXY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-DVHE4V9WXY');
-  </script>
-
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-    (function (m, e, t, r, i, k, a) {
-      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-      m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-    })
-      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-    ym(89513864, "init", {
-      clickmap: true,
-      trackLinks: true,
-      accurateTrackBounce: true,
-      webvisor: true
-    });
-  </script>
-  <noscript>
-    <div><img src="https://mc.yandex.ru/watch/89513864" style="position:absolute; left:-9999px;" alt="" /></div>
-  </noscript>
-  <!-- /Yandex.Metrika counter -->
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 

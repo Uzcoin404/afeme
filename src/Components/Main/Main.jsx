@@ -161,22 +161,6 @@ function Main() {
                   <p className="more">Barchasini korish</p>
                 </NavLink>
               </Box>
-
-              <section className="advertising">
-                {rekData?.map((res) => {
-                  return (
-                    <>
-                      <a href={res?.url}>
-                        <img
-                          className="advertising__img"
-                          src={res?.image}
-                          alt=""
-                        />
-                      </a>
-                    </>
-                  );
-                })}
-              </section>
             </div>
           </section>
         </div>
