@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import Loader from "./Components/Loader/Loader";
 import ErrorBoundary from "./Components/ErrorBoundary/ErrorBoundary";
 import App from "./App";
+import { HelmetProvider } from "react-helmet-async";
 import { GlobalDebug } from "./Utils/removeConsole";
 import { Provider as LangProvider } from "./Context/LangContext";
 import { Provider as UserProvider } from "./Context/UserContext";
@@ -11,35 +12,37 @@ import { Provider as UpdateUserProvider } from "./Context/UpdateUserContext";
 import { Provider as CurrencyProvider } from "./Context/CurrencyContext";
 import { Provider as IPProvider } from "./Context/IPContext";
 import { Provider as SearchContext } from "./Context/SearchContext";
-import Modal from "./Components/LoginModals/ModalAuthorization/Modal"
+import Modal from "./Components/LoginModals/ModalAuthorization/Modal";
 
-if (process.env.NODE_ENV === 'production') {
-    GlobalDebug(false);
+if (process.env.NODE_ENV === "production") {
+  GlobalDebug(false);
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-window.addEventListener('load', function(){
-    document.body.style.overflow = 'auto';
-    document.body.classList.add('loaded');
-})
+window.addEventListener("load", function () {
+  document.body.style.overflow = "auto";
+  document.body.classList.add("loaded");
+});
 root.render(
+  <HelmetProvider>
     <ErrorBoundary>
-        <BrowserRouter>
-            <LangProvider>
-                <UpdateUserProvider>
-                    <UserProvider>
-                        <CurrencyProvider>
-                            <IPProvider>
-                                <SearchContext>
-                                    <Loader />
-                                    <App />
-                                    <Modal/>
-                                </SearchContext>
-                            </IPProvider>
-                        </CurrencyProvider>
-                    </UserProvider>
-                </UpdateUserProvider>
-            </LangProvider>
-        </BrowserRouter>
+      <BrowserRouter>
+        <LangProvider>
+          <UpdateUserProvider>
+            <UserProvider>
+              <CurrencyProvider>
+                <IPProvider>
+                  <SearchContext>
+                    <Loader />
+                    <App />
+                    <Modal />
+                  </SearchContext>
+                </IPProvider>
+              </CurrencyProvider>
+            </UserProvider>
+          </UpdateUserProvider>
+        </LangProvider>
+      </BrowserRouter>
     </ErrorBoundary>
+  </HelmetProvider>
 );

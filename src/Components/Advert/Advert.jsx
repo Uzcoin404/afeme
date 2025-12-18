@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useMemo } from "react";
 import axios from "axios";
 import { NavLink as Link, useParams } from "react-router-dom";
 import { Box, IconButton, Tooltip, Zoom } from "@mui/material";
@@ -8,6 +8,7 @@ import { Context as LangContext } from "../../Context/LangContext";
 import content from "../../Localization/Content";
 import Container from "../Container/Container";
 import Spinner from "../Spinner/Spinner";
+import { Helmet } from "react-helmet-async";
 import AdvertGallery from "../AdvertGallery/AdvertGallery";
 import CardTools from "../../Utils/cardTools";
 import AdvertMap from "../AdvertMap/AdvertMap";
@@ -21,6 +22,9 @@ import EyeIcon from "../../Lib/Svg/eye";
 import arrowRight from "../../Assets/Img/arrow-right.svg";
 
 import "./Advert.scss";
+
+import CardImg1 from "../../Assets/Img/hero-img.png";
+import CardImg2 from "../../Assets/Img/advertImg.jpg";
 
 const API_URL = process.env.REACT_APP_API_URL;
 const DEFAULT_USER_IMAGE =
@@ -64,6 +68,10 @@ function Advert() {
       });
   }, [postID]);
 
+  const fallbackImg = useMemo(() => {
+    return Math.floor(Math.random() * 2) === 0 ? CardImg1 : CardImg2;
+  }, []);
+
   // Helper function to get localized name
   const getLocalizedName = (item) => {
     if (!item) return "";
@@ -83,6 +91,44 @@ function Advert() {
   } else if (data.hasOwnProperty("id") && !dataError) {
     return (
       <Box className="advert">
+        <Helmet>
+          <title>{advertTitle} | Afeme</title>
+          <meta
+            name="description"
+            content={`${advertAddress}, ${data?.street} ${content[lang].street}`}
+          />
+
+          <meta property="og:title" content={advertTitle} />
+          <meta
+            property="og:image"
+            content={
+              data.image?.length > 0
+                ? process.env.REACT_APP_URL + data.image[0]?.url
+                : fallbackImg
+            }
+          />
+          <meta
+            name="og:description"
+            content={`${advertAddress}, ${data?.street} ${content[lang].street}`}
+          />
+
+          
+          <meta property="twitter:title" content={advertTitle} />
+          <meta
+            property="twitter:image"
+            content={
+              data.image?.length > 0
+                ? process.env.REACT_APP_URL + data.image[0]?.url
+                : fallbackImg
+            }
+          />
+          <meta
+            name="twitter:description"
+            content={`${advertAddress}, ${data?.street} ${content[lang].street}`}
+          />
+
+          <link rel="canonical" href={window.location.href} />
+        </Helmet>
         <Container>
           <div className="advert__blog">
             <Box className="advert__content">

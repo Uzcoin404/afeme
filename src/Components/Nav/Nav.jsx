@@ -220,7 +220,7 @@ function Nav({ elHeader }) {
                     </ul>
 
                     <div className="nav__footer">
-                        <a href="#" className="nav__footer-link">
+                        <a href="https://github.com/Uzcoin404/afeme/blob/main/app-debug.apk" className="nav__footer-link">
                             <img
                                 className="nav__footer-link"
                                 src={GoogleImg}
