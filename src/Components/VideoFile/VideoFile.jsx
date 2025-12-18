@@ -103,7 +103,7 @@ function VideoFile({ video, setVideo }) {
                         onDragOver={e => startVideoHandler(e)}
                         onDrop={e => dropVideoHandler(e)}
                     >
-                        <p>Drag here...</p>
+                        <p>{content[lang].drag_here}</p>
                     </div>
                     : <div
                         className={style.dropArea}
@@ -123,7 +123,7 @@ function VideoFile({ video, setVideo }) {
                                 />
                             </div>
                         </label>
-                        <span>Drop Here...</span>
+                        <span>{content[lang].drop_here}</span>
                     </div>
                 }
 

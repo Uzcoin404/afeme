@@ -1,5 +1,5 @@
 // Import => React
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import { NavLink as Link } from "react-router-dom";
 
 // Import => Mui
@@ -30,7 +30,14 @@ import CardImg1 from "../../Assets/Img/hero-img.png";
 import CardImg2 from "../../Assets/Img/advertImg.jpg";
 import timesIcon from "../../Assets/Img/Icon/times.svg";
 
+// Import useContext => Localization
+import { Context } from "../../Context/LangContext";
+import content from "../../Localization/Content";
+
 function Cards({ data, fullCard = false, isUserPost = false }) {
+  // Context
+  const { lang } = useContext(Context);
+
   // State
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
@@ -120,10 +127,9 @@ function Cards({ data, fullCard = false, isUserPost = false }) {
     <div className={`modal deleteModal ${showDeleteModal ? "modal--open" : ""}`}>
       <div className="deleteModal__content">
         <img src={timesIcon} alt="close" />
-        <h3 className="deleteModal__title">Ishonchingiz komilmi?</h3>
+        <h3 className="deleteModal__title">{content[lang].confirm_delete}</h3>
         <p className="deleteModal__text">
-          Ushbu e'lon va uning barcha ma'lumotlari butunlay o'chiriladi. Bu
-          jarayonni ortga qaytarib bo'lmaydi.
+          {content[lang].delete_warning}
         </p>
         <div className="deleteModal__btns">
           <Button
@@ -132,7 +138,7 @@ function Cards({ data, fullCard = false, isUserPost = false }) {
             sx={{ mr: 2 }}
             disabled={isDeleting}
           >
-            Bekor qilish
+            {content[lang].cancel_btn}
           </Button>
           <Button
             className="deleteModal__button deleteModal__submit"
@@ -140,7 +146,7 @@ function Cards({ data, fullCard = false, isUserPost = false }) {
             onClick={handleDelete}
             disabled={isDeleting}
           >
-            {isDeleting ? "O'chirilmoqda..." : "O'chirish"}
+            {isDeleting ? content[lang].deleting : content[lang].delete_btn}
           </Button>
         </div>
         <IconButton
@@ -185,8 +191,8 @@ function Cards({ data, fullCard = false, isUserPost = false }) {
             arrow
             title={
               !soldStatus
-                ? "Sotilgan deb belgilangan e'lon faqat sizga ko'rinadi"
-                : "E'lon barcha uchun ochiq bo'ladi"
+                ? content[lang].sold_tooltip
+                : content[lang].unsold_tooltip
             }
             color="primary"
             open={tooltipOpen}
@@ -205,8 +211,8 @@ function Cards({ data, fullCard = false, isUserPost = false }) {
               {isSoldLoading
                 ? "..."
                 : !soldStatus
-                ? "Sotilgan deb belgilash"
-                : "Bekor qilish"}
+                ? content[lang].mark_sold
+                : content[lang].mark_cancel}
             </Button>
           </Tooltip>
         </div>
@@ -214,17 +220,17 @@ function Cards({ data, fullCard = false, isUserPost = false }) {
             !data.check) &&
           isUserPost ? (
           <Tooltip
-            title="E'lon operatorlar tomonidan ko'rib chiqilmoqda. Bu jarayonda e'lon faqat siz uchun ko'rinadi"
+            title={content[lang].under_review_tooltip}
             placement="top"
           >
-            <div className="card__verification">Ko'rib chiqilmoqda</div>
+            <div className="card__verification">{content[lang].under_review}</div>
           </Tooltip>
         ) : (
           <Tooltip
-            title="Iltimos e'lon ma'lumotlarini o'zgartirib ko'ring"
+            title={content[lang].rejected_tooltip}
             placement="top"
           >
-            <div className="card__verification">Rad etilgan</div>
+            <div className="card__verification">{content[lang].rejected}</div>
           </Tooltip>
         )}
       </>
@@ -248,7 +254,7 @@ function Cards({ data, fullCard = false, isUserPost = false }) {
       <>
         {showSuccessMsg && (
           <Notification
-            message={"E'lon muvafaqqiyatli o'chirildi"}
+            message={content[lang].delete_success}
             type={"success"}
           />
         )}
@@ -341,10 +347,10 @@ function Cards({ data, fullCard = false, isUserPost = false }) {
           </div>
 
           <div className="card__wrap">
-            <div className="card__room card__men">Xonalar: {data.room}</div>
-            <div className="card__flet card__men">Qavat: {data.floor}</div>
+            <div className="card__room card__men">{content[lang].card_rooms}: {data.room}</div>
+            <div className="card__flet card__men">{content[lang].card_floor}: {data.floor}</div>
             <div className="card__ara card__men">
-              Maydoni: {data.total_area} m²
+              {content[lang].card_area}: {data.total_area} m²
             </div>
           </div>
 

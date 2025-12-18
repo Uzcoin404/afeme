@@ -32,7 +32,7 @@ function CardTools(data) {
                 setAdvertAddress(data.region_id?.name_uz);
 
                 setAdvertTitle(
-                    `${data.room} xonali ${data.htype_id?.name_uz == 'Xona' ? "Uy" : data.htype_id?.name_u} ${data.sale_id.id === 6 ? "Sotiladi" : "Ijaraga beriladi"}`
+                    `${data.room} xonali ${data.htype_id?.name_uz == 'Xona' ? "Uy" : data.htype_id?.name_uz} ${data.sale_id.id === 6 ? "Sotiladi" : "Ijaraga beriladi"}`
                 );
             } else if (lang === "ru") {
                 setAdvertType(data.htype_id?.name_ru);

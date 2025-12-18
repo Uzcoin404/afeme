@@ -5,10 +5,13 @@ import CardSkeleton from "../../Components/CardSkeleton/CardSkeleton";
 import Cards from "../../Components/Card/Card";
 import { SearchContext } from "../../Context/SearchContext";
 import NoResults from "../NoResults/NoResults";
+import { Context as LangContext } from "../../Context/LangContext";
+import content from "../../Localization/Content";
 
 let url = process.env.REACT_APP_API_URL;
 
 function MapSearch() {
+    const { lang } = useContext(LangContext);
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const { searchTerms, setSearchTerms } = useContext(SearchContext);
@@ -53,7 +56,7 @@ function MapSearch() {
 
     return (
         <div className="searchMap__adverts">
-            <h3 className="searchMap__title">Qidiruv natijalari</h3>
+            <h3 className="searchMap__title">{content[lang].search_results_title}</h3>
             <div className="searchMap__cards">{showCards(4)}</div>
         </div>
     );

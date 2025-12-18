@@ -147,7 +147,7 @@ function ImageFile({ photo, setPhoto }) {
     return (
         <div className={style.wrapper}>
             <p>{content[lang].adverd_office_img}</p>
-            <label htmlFor="addImgBtn" className={style.addImgBtn} style={{ display: show ? '' : 'none' }}>Add Image</label>
+            <label htmlFor="addImgBtn" className={style.addImgBtn} style={{ display: show ? '' : 'none' }}>{content[lang].add_image}</label>
             <input type='file' accept='image/*' className={style.addImgInp} id="addImgBtn" onChange={e => addImage(e.target.files)}></input>
             <div className={style.images}>
                 {photo.map((i) => (
@@ -166,7 +166,7 @@ function ImageFile({ photo, setPhoto }) {
                         onDragOver={e => startImageHandler(e)}
                         onDrop={e => dropImageHandler(e)}
                     >
-                        <span>Drag here...</span>
+                        <span>{content[lang].drag_here}</span>
                     </div>
                     : <div
                         className={style.dropArea}
@@ -187,7 +187,7 @@ function ImageFile({ photo, setPhoto }) {
                                 />
                             </div>
                         </label>
-                        <span>Drop Here...</span>
+                        <span>{content[lang].drop_here}</span>
                     </div>
                 }
             </div >

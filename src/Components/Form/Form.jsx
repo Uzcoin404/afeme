@@ -247,7 +247,7 @@ function Form() {
                         error={!!errors?.phone}
                         helperText={errors?.phone ? errors.phone.message : null}
                     />
-                    <p style={{ display: show ? 'block' : 'none' }}>Bu raqam mavjud</p>
+                    <p style={{ display: show ? 'block' : 'none' }}>{content[lang].phone_exists_error}</p>
                     {/* SingUp and LogIn Buttons */}
                     <div className="btns">
                         <NavLink

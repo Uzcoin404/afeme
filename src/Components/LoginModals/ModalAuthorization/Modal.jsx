@@ -92,7 +92,7 @@ function Modal({ elModal }) {
                             error={!!errors?.password}
                             helperText={errors?.password ? errors.password.message : null}
                         />
-                        <p className='error' style={{ display: show ? 'block' : 'none' }}>Parol Notogri</p>
+                        <p className='error' style={{ display: show ? 'block' : 'none' }}>{content[lang].password_error}</p>
                         <NavLink to={'/forgot'}>
                             <p className="forgot">{content[lang].forgot}</p>
                         </NavLink>

@@ -101,7 +101,7 @@ function RealtorWrap() {
                                 defaultValue={'all'}
                                 onChange={(e) => setSort(e.target.value)}
                             >
-                                <MenuItem value={'all'}>All</MenuItem>
+                                <MenuItem value={'all'}>{content[lang].filter_all}</MenuItem>
                                 <MenuItem value={'name'}>A-Z</MenuItem>
                                 <MenuItem value={'number'}>1-5</MenuItem>
                             </Select>

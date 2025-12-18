@@ -1,0 +1,53 @@
+name: Deploy app
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      REACT_APP_URL: "https://backend.ddev.site"
+      REACT_APP_API_URL: "https://backend.ddev.site/api/"
+      REACT_APP_STORAGE_URL: "https://backend.ddev.site/storage/"
+      GENERATE_SOURCEMAP: false
+      SKIP_PREFLIGHT_CHECK: true
+      CI: false
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js and dependencies
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'pnpm'
+
+    - name: Install pnpm
+      run: npm install -g pnpm
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+      
+    - name: Build project
+      env:
+        REACT_APP_URL: ${{ secrets.REACT_APP_URL }}
+        REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+        REACT_APP_STORAGE_URL: ${{ secrets.REACT_APP_STORAGE_URL }}
+        GENERATE_SOURCEMAP: false
+        SKIP_PREFLIGHT_CHECK: true
+        CI: false
+      run: pnpm run build
+      
+    - name: Deploy with Rsync over SSH
+      uses: easingthemes/ssh-deploy@main
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+        ARGS: "-avz --delete"
+        SOURCE: "build/"
+        REMOTE_HOST: ${{ secrets.SERVER_IP }}
+        REMOTE_USER: ${{ secrets.SERVER_USER }}
+        TARGET: "~/htdocs/afeme.suyunbek.uz"

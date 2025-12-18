@@ -158,7 +158,7 @@ function Main() {
                   })}
                 </NavLink>
                 <NavLink to={"/catalogreltor"}>
-                  <p className="more">Barchasini korish</p>
+                  <p className="more">{content[lang].view_all}</p>
                 </NavLink>
               </Box>
             </div>

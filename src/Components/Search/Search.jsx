@@ -142,7 +142,7 @@ function Search({ map = false }) {
                 id="filterModal"
             >
                 <Box className="filterModal__blog">
-                    <h3 className="filterModal__title">Filterlar</h3>
+                    <h3 className="filterModal__title">{content[lang].filter_title}</h3>
                     <Box className="filterModal__content">
                         <FormControl className="filter__items" sx={{ mr: 1 }}>
                             <InputLabel id="filter__select-label">

@@ -14,6 +14,9 @@ import ZvezImgIcon from "../../Assets/Img/Icon/zvezda.svg";
 import ReytingModal from "../ReytingModal/ReytingModal";
 import UserContactButtons from "../UserContactButtons/UserContactButtons";
 
+// Import => Localization
+import content from "../../Localization/Content";
+
 // Import => Style Component
 import "../../Components/ReltorCobinet/ReltorCobinet.scss";
 
@@ -81,7 +84,7 @@ function ReltorCobinet() {
             if (userPosts.length > 0) {
                 return (
                     <>
-                        <h2 className="title">Agent E'lonlari</h2>
+                        <h2 className="title">{content[lang].agent_listings}</h2>
                         <div className="realtor__map">
                             <AdvertMap advert={userPosts} />
                         </div>
@@ -250,7 +253,7 @@ function ReltorCobinet() {
                         </div>
                     </div>
 
-                    <h2 className="title">Fikr-Mulohazalar</h2>
+                    <h2 className="title">{content[lang].comments_title}</h2>
 
                     <div className="realtor__comments">
                         {comment?.map((com) => (

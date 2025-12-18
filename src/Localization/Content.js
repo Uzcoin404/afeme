@@ -73,10 +73,31 @@ const content = {
         reltor_lenght: "ta rieltor topildi",
         reltor_sort: "Filterlash",
         no_post: "Siz birorta ham E'lon joylashtirmadingiz",
+        agent_listings: "Agent E'lonlari",
+        agent_on_platform: "kundan beri",
 
         // Errors
         apiError: "Ma'lumotlar olishda xatolik yuz berdi",
         internetError: "Internet bilan aloqa Uzildi. Internet mavjud emas",
+        
+        // Card Actions
+        confirm_delete: "Ishonchingiz komilmi?",
+        delete_warning: "Ushbu e'lon va uning barcha ma'lumotlari butunlay o'chiriladi. Bu jarayonni ortga qaytarib bo'lmaydi.",
+        cancel_btn: "Bekor qilish",
+        delete_btn: "O'chirish",
+        deleting: "O'chirilmoqda...",
+        mark_sold: "Sotilgan deb belgilash",
+        mark_cancel: "Bekor qilish",
+        sold_tooltip: "Sotilgan deb belgilangan e'lon faqat sizga ko'rinadi",
+        unsold_tooltip: "E'lon barcha uchun ochiq bo'ladi",
+        under_review: "Ko'rib chiqilmoqda",
+        under_review_tooltip: "E'lon operatorlar tomonidan ko'rib chiqilmoqda. Bu jarayonda e'lon faqat siz uchun ko'rinadi",
+        rejected: "Rad etilgan",
+        rejected_tooltip: "Iltimos e'lon ma'lumotlarini o'zgartirib ko'ring",
+        delete_success: "E'lon muvafaqqiyatli o'chirildi",
+        card_rooms: "Xonalar",
+        card_floor: "Qavat",
+        card_area: "Maydoni",
 
         // User Profil
         user_profil: "Mening profilim",
@@ -85,6 +106,32 @@ const content = {
         user_profil_favorintes: "Tanlanganlar",
         user_profil_news: "Yangiliklar",
         user_profil_clos: "Chiqish",
+        
+        // 404 Page
+        page_not_found_title: "Sahifa topilmadi",
+        page_not_found_desc: "Kechirasiz bunday sahifa topilmadi. Shu linkni bosib Bosh sahifaga qaytishingiz mumkin",
+        page_not_found_link: "Shu linkni",
+        
+        // Comments & Reviews
+        comments_title: "Fikr-Mulohazalar",
+        
+        // Forms & Validation
+        phone_exists_error: "Bu raqam mavjud",
+        password_error: "Parol Notogri",
+        city_label: "Tuman",
+        
+        // Search & Filter
+        search_results_title: "Qidiruv natijalari",
+        filter_title: "Filterlar",
+        view_all: "Barchasini korish",
+        
+        // File Upload
+        add_image: "Add Image",
+        drag_here: "Drag here...",
+        drop_here: "Drop Here...",
+        
+        // Other
+        filter_all: "All",
 
         //Help
         title: 'Yordam',
@@ -350,12 +397,32 @@ const content = {
         reltor_title: "Agent Directory", // Professional term
         reltor_lenght: "Realtors Found", // Rephrased for correct placement: "X Realtors Found"
         reltor_sort: "Sort By", // More common UI term
-        // 'no_post' is missing in 'en' but should be:
         no_post: "You have not posted any listings yet",
+        agent_listings: "Agent's Listings",
+        agent_on_platform: "since",
 
         // Errors
         apiError: "Failed to load data. Please try again.", // More helpful
         internetError: "Connection lost. Please check your internet connection.", // More explicit
+        
+        // Card Actions
+        confirm_delete: "Are you sure?",
+        delete_warning: "This listing and all its information will be permanently deleted. This action cannot be undone.",
+        cancel_btn: "Cancel",
+        delete_btn: "Delete",
+        deleting: "Deleting...",
+        mark_sold: "Mark as Sold",
+        mark_cancel: "Undo",
+        sold_tooltip: "Listings marked as sold are only visible to you",
+        unsold_tooltip: "The listing will be visible to everyone",
+        under_review: "Under Review",
+        under_review_tooltip: "Your listing is being reviewed by our team. It's only visible to you during this time",
+        rejected: "Rejected",
+        rejected_tooltip: "Please update your listing information",
+        delete_success: "Listing deleted successfully",
+        card_rooms: "Rooms",
+        card_floor: "Floor",
+        card_area: "Area",
 
         // User Profile
         user_profil: "My Profile",
@@ -364,6 +431,32 @@ const content = {
         user_profil_favorintes: "Favorites",
         user_profil_news: "News & Updates",
         user_profil_clos: "Log Out",
+        
+        // 404 Page
+        page_not_found_title: "Page Not Found",
+        page_not_found_desc: "Sorry, the page you're looking for doesn't exist. You can go back to the home page by clicking this link",
+        page_not_found_link: "here",
+        
+        // Comments & Reviews
+        comments_title: "Comments",
+        
+        // Forms & Validation
+        phone_exists_error: "This phone number already exists",
+        password_error: "Password is incorrect",
+        city_label: "City/District",
+        
+        // Search & Filter
+        search_results_title: "Search Results",
+        filter_title: "Filters",
+        view_all: "View All",
+        
+        // File Upload
+        add_image: "Add Image",
+        drag_here: "Drag here...",
+        drop_here: "Drop Here...",
+        
+        // Other
+        filter_all: "All",
 
         // Help
         title: 'Help Center', // More formal
@@ -611,6 +704,8 @@ const content = {
         reltor_title: "Каталог риелторов",
         reltor_lenght: "нашел риелтора",
         reltor_sort: "Сортировка",
+        agent_listings: "Объявления Агента",
+        agent_on_platform: "с момента",
 
         // User
         user_profil: "Мой профиль",
@@ -619,6 +714,51 @@ const content = {
         user_profil_favorintes: "Избранное",
         user_profil_news: "Новости",
         user_profil_clos: "Выйти",
+        
+        // Errors
+        confirm_delete: "Вы уверены?",
+        delete_warning: "Это объявление и вся его информация будут полностью удалены. Это действие нельзя отменить.",
+        cancel_btn: "Отмена",
+        delete_btn: "Удалить",
+        deleting: "Удаление...",
+        mark_sold: "Отметить как проданное",
+        mark_cancel: "Отмена",
+        sold_tooltip: "Объявления, отмеченные как проданные, видны только вам",
+        unsold_tooltip: "Объявление будет видно всем",
+        under_review: "На рассмотрении",
+        under_review_tooltip: "Ваше объявление проверяется нашей командой. В это время оно видно только вам",
+        rejected: "Отклонено",
+        rejected_tooltip: "Пожалуйста, обновите информацию вашего объявления",
+        delete_success: "Объявление успешно удалено",
+        card_rooms: "Комнаты",
+        card_floor: "Этаж",
+        card_area: "Площадь",
+        
+        // 404 Page
+        page_not_found_title: "Страница не найдена",
+        page_not_found_desc: "К сожалению, страница, которую вы ищете, не существует. Вы можете вернуться на главную страницу, нажав эту ссылку",
+        page_not_found_link: "здесь",
+        
+        // Comments & Reviews
+        comments_title: "Комментарии",
+        
+        // Forms & Validation
+        phone_exists_error: "Этот номер телефона уже существует",
+        password_error: "Пароль неверный",
+        city_label: "Город/Район",
+        
+        // Search & Filter
+        search_results_title: "Результаты поиска",
+        filter_title: "Фильтры",
+        view_all: "Просмотреть все",
+        
+        // File Upload
+        add_image: "Добавить изображение",
+        drag_here: "Перетащите сюда...",
+        drop_here: "Отпустите здесь...",
+        
+        // Other
+        filter_all: "Все",
 
         //Help
         title: 'Помощь',

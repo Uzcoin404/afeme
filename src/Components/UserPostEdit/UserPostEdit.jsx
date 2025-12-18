@@ -462,10 +462,10 @@ function UserPostEdit() {
                 </Select>
               </FormControl>
               <FormControl className="selectInp">
-                <InputLabel id="shaxar">Tuman</InputLabel>
+                <InputLabel id="shaxar">{content[lang].city_label}</InputLabel>
                 <Select
                   id="shaxar"
-                  label={"Tuman"}
+                  label={content[lang].city_label}
                   value={city_id}
                   onChange={(e) => setCity(e.target.value)}
                 >
