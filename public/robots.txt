@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://api.afeme.suyunbek.uz/sitemap.xml
+Sitemap: https://afeme.suyunbek.uz/sitemap.xml
